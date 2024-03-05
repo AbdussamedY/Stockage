@@ -1,0 +1,174 @@
+\documentclass{article}
+
+
+
+
+
+
+%%%%%%%% PACKAGES
+\usepackage[french]{babel}
+\usepackage{icomma}
+\usepackage[T1]{fontenc} 
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{fourier}
+\usepackage{mathtools}
+\usepackage{chemfig}
+\usepackage{tabularx}
+\usepackage{lettrine}
+\usepackage[margin=4cm]{geometry}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{romanbar}
+\usepackage{amsmath}
+\usepackage{framed}
+\usepackage{fancybox}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{ulem}
+\usepackage{enumitem}
+\usepackage{schemata}
+\usepackage[tikz]{bclogo}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows, decorations.pathreplacing, spy, shapes.misc, patterns}
+\tikzstyle{spring}=[thick,decorate,decoration={zigzag, pre length=0.1cm,post length=0.1cm, segment length=6}]
+\usepackage[bottom]{footmisc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% LATEX GRINCHEUX
+\DeclareUnicodeCharacter{2061}{}
+\DeclareUnicodeCharacter{2236}{}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+\setlength{\parindent}{0pt}
+
+
+
+%%%%%%%%%% FILIGRANE COMMANDES
+\usepackage{eso-pic}
+\makeatletter
+\newlength\@tempdim@x
+\newlength\@tempdim@y
+% structure des commandes :
+%   #1 = deplacement selon x
+%   #2 = deplacement selon y
+%   #3 = texte à mettre
+\newcommand\AtUpperLeftCorner[3]{%
+\begingroup
+\@tempdim@x=0cm
+\@tempdim@y=\paperheight
+\advance\@tempdim@x#1
+\advance\@tempdim@y-#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+\newcommand\AtUpperRightCorner[3]{%
+\begingroup
+\@tempdim@x=\paperwidth
+\@tempdim@y=\paperheight
+\advance\@tempdim@x-#1
+\advance\@tempdim@y-#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+\newcommand\AtLowerLeftCorner[3]{%
+\begingroup
+\@tempdim@x=0cm
+\@tempdim@y=0cm
+\advance\@tempdim@x#1
+\advance\@tempdim@y#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+\newcommand\AtLowerRightCorner[3]{%
+\begingroup
+\@tempdim@x=\paperwidth
+\@tempdim@y=0cm
+\advance\@tempdim@x-#1
+\advance\@tempdim@y#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%% FILIGRANE 
+% ajout de texte ou d'images en haut à gauche, en haut à droite, etc.
+\AddToShipoutPicture{%
+\AtUpperRightCorner{1cm}{1cm}{\ifodd\c@page\rotatebox{-90}{\textsc{Médecine-Sciences ENS Ulm -- Promotion 2022-2023}}\fi}
+\AtLowerLeftCorner{1cm}{1cm}{\ifodd\c@page\else\rotatebox{90}{\textsc{Médecine-Sciences ENS Ulm -- Promotion 2022-2023}}\fi}
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%% LOL
+\newcommand{\fb}[0]{
+\begin{tikzpicture}[scale=0.1]
+\filldraw[blue!80!black, rounded corners, even odd rule] (0, 0) rectangle (3, 3)  ;
+\filldraw[white](1.6,1.5)--++(1,0)--++(-0.05,-0.35)--++(-.95,0)--cycle;
+\draw[color=white, fill=white] (1.9,0) .. controls (1.8,2.3) and (2,2.5).. (2.6,2.5)--++(0,-.3) .. controls (2.1,2.2) and (2.2,1.5)..(2.2,0)--cycle;
+\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+
+\input{frontpage}
+
+\newpage
+
+\tableofcontents
+
+\vspace{5cm}
+
+\textit{\uline{Nota bene :} ce document contient des hyperliens cliquables cachés un peu partout, profites-en, on va réviser en s'amusant !\\
+\href{https://www.youtube.com/shorts/475so-5icRg}{Où sont les hyperliens ?}
+}
+
+\newpage
+
+\input{introduction}
+
+\input{dossier}
+
+\section{\'Epreuves orales}
+
+\input{introduction_support}
+
+\input{entretien_motivationnel}
+
+\input{Biologie}
+
+\input{Physique}
+
+\input{Chimie}
+
+\input{Contacts}
+
+\end{document}
